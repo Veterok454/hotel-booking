@@ -1,8 +1,11 @@
 import User from '../models/User.js';
 import { Webhook } from 'svix';
+import connectDB from '../configs/db.js';
 
 const clerkWebhooks = async (req, res) => {
   try {
+    await connectDB();
+
     // Create a Svix instance with clerk webhook secret
     const whook = new Webhook(process.env.CLERK_WEBHOOK_SECRET);
 
@@ -51,7 +54,7 @@ const clerkWebhooks = async (req, res) => {
       default:
         break;
     }
-    res.json({ success: true, message: 'Webhook Recieved' });
+    res.json({ success: true, message: 'Webhook recieved' });
   } catch (error) {
     console.log(error.message);
     res.json({ success: false, message: error.message });

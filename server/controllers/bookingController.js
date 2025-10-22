@@ -2,10 +2,13 @@ import transporter from '../configs/nodemailer.js';
 import Booking from '../models/Booking.js';
 import Hotel from '../models/Hotel.js';
 import Room from '../models/Room.js';
+import connectDB from '../configs/db.js';
 
 // Function to check room availability
 const checkAvailability = async (room, checkInDate, checkOutDate) => {
   try {
+    await connectDB();
+
     const bookings = await Booking.find({
       room,
       checkInDate: { $lte: checkOutDate },
@@ -23,6 +26,8 @@ const checkAvailability = async (room, checkInDate, checkOutDate) => {
 // POST /api/bookings/check-availability
 export const checkAvailabilityAPI = async (req, res) => {
   try {
+    await connectDB();
+
     const { room, checkInDate, checkOutDate } = req.body;
     const isAvailable = await checkAvailability(
       room,
@@ -39,6 +44,8 @@ export const checkAvailabilityAPI = async (req, res) => {
 // POST /api/bookings/book
 export const createBooking = async (req, res) => {
   try {
+    await connectDB();
+
     const { room, checkInDate, checkOutDate, guests } = req.body;
     const user = req.user._id;
 
@@ -126,10 +133,13 @@ export const createBooking = async (req, res) => {
 // GET /api/bookings/user
 export const getUserBookings = async (req, res) => {
   try {
+    await connectDB();
+
     const user = req.user._id;
     const bookings = await Booking.find({ user })
       .populate('room hotel')
       .sort({ createdAt: -1 });
+
     res.json({ success: true, bookings });
   } catch (error) {
     res.json({ success: false, message: 'Failed to fetch bookings' });
@@ -138,6 +148,8 @@ export const getUserBookings = async (req, res) => {
 
 export const getHotelBookings = async (req, res) => {
   try {
+    await connectDB();
+
     const hotel = await Hotel.findOne({ owner: req.auth().userId });
 
     if (!hotel) {
@@ -157,6 +169,7 @@ export const getHotelBookings = async (req, res) => {
       (acc, booking) => acc + booking.totalPrice,
       0
     );
+
     res.json({
       success: true,
       dashboardData: { totalBookings, totalRevenue, bookings },
