@@ -82,6 +82,7 @@ export const AppProvider = ({ children }) => {
     setSearchedCities,
     rooms,
     setRooms,
+    toast,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

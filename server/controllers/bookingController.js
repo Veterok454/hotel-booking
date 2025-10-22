@@ -79,6 +79,10 @@ export const createBooking = async (req, res) => {
       totalPrice,
     });
 
+    const hotelName = roomData.hotel.name;
+    const hotelAddress = roomData.hotel.address;
+    const roomType = roomData.roomType;
+
     const mailOptions = {
       from: process.env.SENDER_EMAIL,
       to: req.user.email,
@@ -89,12 +93,20 @@ export const createBooking = async (req, res) => {
       <p>Thank you for your booking! Here are your details:</p>
       <ul>
       <li><strong>Booking ID:</strong> ${booking._id}</li>
-      <li><strong>Hotel Name:</strong> ${booking.hotel.name}</li>
-      <li><strong>Location:</strong> ${roomData.hotel.address}</li>
-      <li><strong>Date:</strong> ${booking.checkInDate.toDateString()}</li>.
-      <li><strong>Booking Amount:</strong> ${process.env.CURRENCY || '£'} ${
-        booking.totalPrice
-      } / night</li>
+      <li><strong>Hotel Name:</strong> ${hotelName}</li>
+       <li><strong>Room Type:</strong> ${roomType}</li>
+      <li><strong>Location:</strong> ${hotelAddress}</li>
+       <li><strong>Check-in Date:</strong> ${new Date(
+         checkInDate
+       ).toDateString()}</li>
+        <li><strong>Check-out Date:</strong> ${new Date(
+          checkOutDate
+        ).toDateString()}</li>
+        <li><strong>Number of Guests:</strong> ${guests}</li>
+        <li><strong>Number of Nights:</strong> ${nights}</li>
+      <li><strong>Booking Amount:</strong> ${
+        process.env.CURRENCY || '£'
+      } ${totalPrice}</li>
             </ul>
             <p>We look forward to welcoming you!</p>
             <p>If you need to make any changes, feel free to contact us.</p>

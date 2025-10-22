@@ -2,9 +2,10 @@ import React, { useEffect, useState, useCallback } from 'react';
 import Title from '../../components/Title';
 import { assets } from '../../assets/assets';
 import { useAppContext } from '../../hooks/useAppContext';
+import { toast } from 'react-hot-toast';
 
 const Dashboard = () => {
-  const { currency, user, getToken, toast, axios } = useAppContext();
+  const { currency, user, getToken, axios } = useAppContext();
 
   const [dashboardData, setDashboardData] = useState({
     bookings: [],
@@ -25,7 +26,7 @@ const Dashboard = () => {
     } catch (error) {
       toast.error(error.message);
     }
-  }, [axios, getToken, toast]);
+  }, [axios, getToken]);
 
   useEffect(() => {
     if (user) {
