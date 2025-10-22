@@ -178,7 +178,7 @@ const AllRooms = () => {
               <p className='text-gray-500'>{room.hotel?.city ?? '-'}</p>
               <p
                 onClick={() => {
-                  navigate(`/rooms/${room.id}`);
+                  navigate(`/rooms/${room._id}`);
                   scrollTo(0, 0);
                 }}
                 className='text-gray-800 text-3xl font-playfair cursor-pointer'
