@@ -62,20 +62,15 @@ const NewsLetter = () => {
         />
         <button
           type='submit'
-          disabled={isSubmitting}
           onClick={handleSubscribe}
           className='flex items-center justify-center gap-2 group bg-black px-4 md:px-7 py-2.5 rounded active:scale-95 transition-all cursor-pointer'
         >
-          {' '}
-          {isSubmitting ? (
-            <div className='w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin' />
-          ) : (
-            <img
-              src={assets.arrowIcon}
-              alt='arrowIcon'
-              className='w-3.5 invert'
-            />
-          )}
+          Subscribe
+          <img
+            src={assets.arrowIcon}
+            alt='arrowIcon'
+            className='w-3.5 invert group-hover:translate-x-1 transition-all'
+          />
         </button>
       </form>
       <p className='text-gray-500 mt-6 text-xs text-center'>
