@@ -98,7 +98,7 @@ const Footer = () => {
           </p>
           <div className='flex items-center mt-4'>
             <input
-              type='text'
+              type='email'
               className='bg-white rounded-l border border-gray-300 h-9 px-3 outline-none'
               placeholder='Your email'
             />
