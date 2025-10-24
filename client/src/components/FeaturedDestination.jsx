@@ -1,33 +1,30 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import HotelCard from './HotelCard';
 import Title from './Title';
 import { useAppContext } from '../hooks/useAppContext';
 
 const FeaturedDestination = () => {
-  const { rooms, navigate } = useAppContext();
+  const { rooms } = useAppContext();
+
+  const featuredRooms = useMemo(() => {
+    return [...rooms]
+      .sort((a, b) => b.pricePerNight - a.pricePerNight)
+      .slice(0, 4);
+  }, [rooms]);
 
   return (
     rooms.length > 0 && (
       <div className='flex flex-col items-center px-6 md:px-16 lg:px-24 bg-slate-50 py-20'>
         <Title
-          title='Featured Hotels'
-          subTitle='Discover our handpicked selection of exceptional properties around the world, offering unparalleled luxury and unforgettable experiences'
+          title='Featured Luxury Hotels'
+          subTitle='Experience the finest accommodations with premium amenities, exceptional service, and breathtaking locations'
         />
 
         <div className='flex flex-wrap items-center justify-centerv gap-6 mt-20'>
-          {rooms.slice(0, 4).map((room, index) => (
+          {featuredRooms.map((room, index) => (
             <HotelCard room={room} index={index} key={room._id} />
           ))}
         </div>
-        <button
-          onClick={() => {
-            navigate('/rooms');
-            scrollTo(0, 0);
-          }}
-          className='my-16 px-4 py-2 text-sm font-medium border border-gray-300 rounded bg-white hover:bg-gray-100 transition-all cursor-pointer'
-        >
-          View All Hotels
-        </button>
       </div>
     )
   );

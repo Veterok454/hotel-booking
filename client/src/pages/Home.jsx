@@ -11,8 +11,8 @@ const Home = () => {
     <>
       <Hero />
       <RecommendedHotels />
-      <FeaturedDestination />
       <ExclusiveOffers />
+      <FeaturedDestination />
       <Testimonial />
       <NewsLetter />
     </>
