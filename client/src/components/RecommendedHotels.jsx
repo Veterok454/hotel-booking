@@ -37,7 +37,7 @@ const RecommendedHotels = () => {
         title={
           searchedCities.length > 0
             ? 'Recommended Hotels'
-            : 'Discover Amazing Hotels'
+            : 'Find an amazing hotel that suits you'
         }
         subTitle='Explore handpicked destinations tailored just for you, featuring world-class amenities and unforgettable experiences'
       />
