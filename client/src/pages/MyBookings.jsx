@@ -64,7 +64,7 @@ const MyBookings = () => {
                 </p>
                 <div className='flex items-center gap-1 text-sm text-gray-500'>
                   <img src={assets.locationIcon} alt='locationIcon' />
-                  <span>{booking.hotel.address}</span>
+                  <span>{booking.hotel.address}, </span>
                   <span>{booking.hotel.city}</span>
                 </div>
                 <div className='flex items-center gap-1 text-sm text-gray-500'>
