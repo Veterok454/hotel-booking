@@ -108,7 +108,9 @@ const RoomDetails = () => {
         {/* Room Address */}
         <div className='flex items-center gap-1 text-gray-500 mt-2'>
           <img src={assets.locationIcon} alt='locationIcon' />
-          <span>{room.hotel.address}</span>
+          <span>
+            {room.hotel.address}, {room.hotel.city}
+          </span>
         </div>
 
         {/* Room Images */}
