@@ -192,6 +192,7 @@ const AllRooms = () => {
               <div className='flex items-center gap-1 text-gray-500 mt-2 text-sm'>
                 <img src={assets.locationIcon} alt='locationIcon' />
                 <span>{room.hotel?.address ?? '-'}</span>
+                <p>{room.hotel.city}</p>
               </div>
               {/*Room Amenities*/}
               <div className='flex flex-wrap items-center mt-3 mb-6 gap-4'>
