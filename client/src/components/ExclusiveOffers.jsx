@@ -37,7 +37,7 @@ const ExclusiveOffers = () => {
                 Expires {item.expiryDate}
               </p>
             </div>
-            <button className='flex items-center gap-2 font-medium cursor-pointer mt-4 mb-5'>
+            <button className='flex items-center gap-2 font-medium cursor-pointer mt-4 mb-4'>
               View Offers
               <img
                 src={assets.arrowIcon}

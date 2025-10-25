@@ -66,20 +66,12 @@ const NewsLetter = () => {
           onClick={handleSubscribe}
           className='flex items-center justify-center gap-2 group bg-black  hover:bg-gray-800 px-4 md:px-7 py-2.5 aspect-square rounded active:scale-95 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
         >
-          {' '}
-          {isSubmitting ? (
-            <div className='w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin' />
-          ) : (
-            <>
-              {' '}
-              Subscribe
-              <img
-                src={assets.arrowIcon}
-                alt='arrowIcon'
-                className='w-3.5 invert group-hover:translate-x-1 transition-all'
-              />
-            </>
-          )}
+          Subscribe
+          <img
+            src={assets.arrowIcon}
+            alt='arrowIcon'
+            className='w-3.5 invert group-hover:translate-x-1 transition-all'
+          />
         </button>
       </form>
       <p className='text-gray-500 mt-6 text-xs text-center'>
