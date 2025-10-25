@@ -64,7 +64,7 @@ const NewsLetter = () => {
           type='submit'
           disabled={isSubmitting}
           onClick={handleSubscribe}
-          className='flex items-center justify-center gap-2 group bg-black  hover:bg-gray-800 px-4 md:px-7 py-2.5 aspect-square rounded active:scale-95 transition-colors disabled:opacity-50 disabled:cursor-not-allowed'
+          className='flex items-center justify-center gap-2 group bg-black  hover:bg-gray-800 px-4 md:px-7 py-2.5 rounded active:scale-95 transition-all'
         >
           Subscribe
           <img

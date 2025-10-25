@@ -4,7 +4,7 @@ import { assets, exclusiveOffers } from '../assets/assets';
 
 const ExclusiveOffers = () => {
   return (
-    <div className='flex flex-col items-center px-6 md:px-16 lg:px-24 xl:px-32 pt-20 pb-30'>
+    <div className='flex flex-col items-center px-6 md:px-16 lg:px-24 xl:px-32 pt-20 pb-20'>
       <div className='flex flex-col md:flex-row items-center justify-between w-full'>
         <Title
           align='left'
@@ -37,7 +37,7 @@ const ExclusiveOffers = () => {
                 Expires {item.expiryDate}
               </p>
             </div>
-            <button className='flex items-center gap-2 font-medium cursor-pointer mt-4 mb-4'>
+            <button className='flex items-center gap-2 font-medium cursor-pointer mt-4 mb-5'>
               View Offers
               <img
                 src={assets.arrowIcon}
