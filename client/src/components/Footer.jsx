@@ -192,7 +192,7 @@ const Footer = () => {
                 <img
                   src={assets.arrowIcon}
                   alt='arrowIcon'
-                  className='w-3.5 invert'
+                  className='w-3.5 invert hover:translate-x-1 transition-all'
                 />
               )}
             </button>
