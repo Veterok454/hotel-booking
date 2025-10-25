@@ -63,7 +63,7 @@ const NewsLetter = () => {
         <button
           type='submit'
           onClick={handleSubscribe}
-          className='flex flex-row items-center justify-center gap-2 group bg-black px-4 md:px-7 py-2.5 rounded active:scale-95 transition-all cursor-pointer'
+          className='flex flex-col items-center justify-center gap-2 group bg-black px-4 md:px-7 py-2.5 rounded active:scale-95 transition-all cursor-pointer'
         >
           {' '}
           {isSubmitting ? (
