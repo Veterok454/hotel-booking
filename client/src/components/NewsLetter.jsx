@@ -61,6 +61,8 @@ const NewsLetter = () => {
           required
         />
         <button
+          type='submit'
+          disabled={isSubmitting}
           onClick={handleSubscribe}
           className='flex items-center justify-center gap-2 group bg-black px-4 md:px-7 py-2.5 rounded active:scale-95 transition-all cursor-pointer'
         >
