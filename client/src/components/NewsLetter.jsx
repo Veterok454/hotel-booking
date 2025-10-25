@@ -70,7 +70,7 @@ const NewsLetter = () => {
             <div className='w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin' />
           ) : (
             <div>
-              <p>Subscribe</p>{' '}
+              Subscribe
               <img
                 src={assets.arrowIcon}
                 alt='arrowIcon'
