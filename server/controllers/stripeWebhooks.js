@@ -5,7 +5,7 @@ import connectDB from '../configs/db.js';
 // API to handle Stripe Webhooks
 
 export const stripeWebhooks = async (request, response) => {
-  console.log('Webhook received!');
+  console.log('Webhook received');
   try {
     await connectDB();
     console.log('Database connected');
@@ -41,15 +41,6 @@ export const stripeWebhooks = async (request, response) => {
         return response.json({ error: 'No bookingId found' });
       }
 
-      const existingBooking = await Booking.findById(bookingId);
-      console.log('Found booking:', existingBooking);
-
-      if (!existingBooking) {
-        console.error('Booking not found:', bookingId);
-        return response.json({ error: 'Booking not found' });
-      }
-
-      //Mark Payment as Paid
       const updatedBooking = await Booking.findByIdAndUpdate(
         bookingId,
         {
@@ -59,7 +50,41 @@ export const stripeWebhooks = async (request, response) => {
         { new: true }
       );
 
-      console.log('Booking updated successfully:', updatedBooking);
+      console.log('Booking updated (checkout.session):', updatedBooking);
+    } else if (event.type === 'payment_intent.succeeded') {
+      const paymentIntent = event.data.object;
+      const paymentIntentId = paymentIntent.id;
+
+      console.log('Payment Intent ID:', paymentIntentId);
+
+      const sessions = await stripeInstance.checkout.sessions.list({
+        payment_intent: paymentIntentId,
+        limit: 1,
+      });
+
+      if (sessions.data.length > 0) {
+        const session = sessions.data[0];
+        const { bookingId } = session.metadata;
+
+        console.log('Booking ID from session:', bookingId);
+
+        if (bookingId) {
+          const updatedBooking = await Booking.findByIdAndUpdate(
+            bookingId,
+            {
+              isPaid: true,
+              paymentMethod: 'Stripe',
+            },
+            { new: true }
+          );
+
+          console.log('Booking updated (payment_intent):', updatedBooking);
+        } else {
+          console.error('No bookingId in session metadata');
+        }
+      } else {
+        console.error('No session found for payment intent');
+      }
     } else {
       console.log('Unhandled event type:', event.type);
     }
