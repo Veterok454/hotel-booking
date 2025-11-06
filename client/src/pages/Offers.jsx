@@ -57,7 +57,7 @@ const Offers = () => {
 
   return (
     <>
-      <div className='pt-28 md:pt-35 px-6 md:px-16 lg:px-24 xl:px-32 pb-20'>
+      <div className='pt-28 md:pt-32 px-6 md:px-16 lg:px-24 xl:px-32 pb-20'>
         <Title
           title='Exclusive Offers'
           subTitle='Take advantage of our limited-time offers and special packages to enhance your stay and create unforgettable memories.'

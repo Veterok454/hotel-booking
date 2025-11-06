@@ -54,7 +54,7 @@ const MyBookings = () => {
   }, [fetchUserBookings, user]);
 
   return (
-    <div className='py-28 md:pb-35 md:pt-32 px-4 md:px-16 lg:px-24 xl:px-32'>
+    <div className='py-28 md:pb-32 md:pt-32 px-4 md:px-16 lg:px-24 xl:px-32'>
       <Title
         title='My Bookings'
         subTitle='Easily manage your past, current, and upcoming hotel reservations in one place. Plan your trips seamlessly with just a few clicks.'
@@ -76,7 +76,7 @@ const MyBookings = () => {
               <img
                 src={booking.room.images[0]}
                 alt='hotel image'
-                className='min-md:w-44 rounded shadow object-cover'
+                className='md:w-44 rounded shadow object-cover'
               />
               <div className='flex flex-col gap-1.5 max-md:mt-3 min-md:ml-4'>
                 <p className='text-2xl font-playfair'>

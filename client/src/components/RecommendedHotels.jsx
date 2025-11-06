@@ -42,7 +42,7 @@ const RecommendedHotels = () => {
         subTitle='Explore handpicked destinations tailored just for you, featuring world-class amenities and unforgettable experiences'
       />
 
-      <div className='flex flex-wrap items-center justify-centerv gap-6 mt-20'>
+      <div className='flex flex-wrap items-center justify-center gap-6 mt-20'>
         {recommended.map((room, index) => (
           <HotelCard room={room} index={index} key={room._id} />
         ))}

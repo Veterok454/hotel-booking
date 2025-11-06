@@ -20,7 +20,7 @@ const FeaturedDestination = () => {
           subTitle='Experience the finest accommodations with premium amenities, exceptional service, and breathtaking locations'
         />
 
-        <div className='flex flex-wrap items-center justify-centerv gap-6 mt-20'>
+        <div className='flex flex-wrap items-center justify-center gap-6 mt-20'>
           {featuredRooms.map((room, index) => (
             <HotelCard room={room} index={index} key={room._id} />
           ))}

@@ -149,7 +149,7 @@ const AllRooms = () => {
   };
 
   return (
-    <div className='flex flex-col-reverse lg:flex-row items-start justify-between pt-28 md:pt-35 px-4 md:px-16 lg:px-24 xl:px-32 animate-fadeIn'>
+    <div className='flex flex-col-reverse lg:flex-row items-start justify-between pt-28 md:pt-32 px-4 md:px-16 lg:px-24 xl:px-32 animate-fadeIn'>
       <div>
         <div className='flex flex-col items-start text-left'>
           <h1 className='font-playfair text-4xl md:text-[40px]'>Hotel Rooms</h1>
@@ -162,7 +162,7 @@ const AllRooms = () => {
         {filteredRooms.map((room) => (
           <div
             key={room._id}
-            className='flex flex-col md:flex-row items-start py-10 gap-6 border-b border-gray-300 last:pb-30 last:border-0'
+            className='flex flex-col md:flex-row items-start py-10 gap-6 border-b border-gray-300 last:pb-24 last:border-0'
           >
             <img
               onClick={() => {

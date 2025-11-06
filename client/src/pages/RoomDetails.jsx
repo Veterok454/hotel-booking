@@ -87,7 +87,7 @@ const RoomDetails = () => {
 
   return (
     room && (
-      <div className='py-28 md:py-35 px-4 md:px-16 lg:px-24 xl:px-32'>
+      <div className='py-28 md:py-32 px-4 md:px-16 lg:px-24 xl:px-32'>
         {/* Room Details */}
         <div className='flex flex-col md:flex-row items-start md:items-center gap-2'>
           <h1 className='text-3xl md:text-4xl font-playfair '>
@@ -267,7 +267,7 @@ const RoomDetails = () => {
             <img
               src={room.hotel.owner.image}
               alt='Host'
-              className='h-14 w-14 md:h-18 md:w-18 rounded-full'
+              className='h-14 w-14 md:h-20 md:w-20 rounded-full'
             />
             <div>
               <p className='text-lg md:text-xl'>Hosted by {room.hotel.name} </p>
