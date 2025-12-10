@@ -17,7 +17,20 @@ connectDB();
 connectCloudinary();
 
 const app = express();
-app.use(cors()); //Enable Cross-Origin Resource Sharing
+
+app.use(
+  cors({
+    origin: [
+      'http://localhost:5173',
+      'http://localhost:3000',
+      'https://besttostay.vercel.app',
+    ],
+
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+  })
+);
 
 // API to listen to Stripe Webhooks
 app.post(
